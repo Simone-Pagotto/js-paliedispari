@@ -1,4 +1,5 @@
 var submitElement=document.getElementById("submit");
+
 submitElement.addEventListener("click",function(){
   //acquisisco gli input dell'utente
   var oddEven ;
@@ -33,6 +34,8 @@ submitElement.addEventListener("click",function(){
   var even=isEven(finalNumber);
   console.log(even);
 
+  document.getElementById("stats").innerHTML = 'TUO NUMERO: '+ yourNumber + '   NUMERO DEL PC: ' + computerNumber + '    SOMMA: '
++ finalNumber;
   if(oddEven=='pari'){
     if(even==true){
       document.getElementById("result").innerHTML='VITTORIA';
@@ -40,7 +43,8 @@ submitElement.addEventListener("click",function(){
       document.getElementById("result").innerHTML='SCONFITTA';
     }
   } else {
-    if(even==false){document.getElementById("result").innerHTML='VITTORIA';
+    if(even==false){
+      document.getElementById("result").innerHTML='VITTORIA';
     }else{
       document.getElementById("result").innerHTML='SCONFITTA';
     }
