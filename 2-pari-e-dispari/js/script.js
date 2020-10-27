@@ -2,17 +2,20 @@ var submitElement=document.getElementById("submit");
 
 submitElement.addEventListener("click",function(){
   //acquisisco gli input dell'utente
-  var oddEven ;
-  var checked = document.getElementById("radio").checked;
-  var yourNumber = parseInt(document.getElementById("number").value);
-  console.log(checked,yourNumber);
 
-  if (checked == true){
-    oddEven = 'pari';
-  } else {
-    oddEven = 'dispari';
+  var yourNumber = parseInt(document.getElementById("number").value);
+  console.log(yourNumber);
+
+  var play = document.getElementsByName("play");
+  var selectedPlay;
+
+  for (var i = 0; i < play.length; i++) {
+    if(play[i].checked){
+      selectedPlay = play[i].value;
+    }
   }
-  console.log(oddEven);
+
+  console.log(play,selectedPlay);
 
   //creo numero Random dell'Utente con funzione
 
@@ -36,7 +39,7 @@ submitElement.addEventListener("click",function(){
 
   document.getElementById("stats").innerHTML = 'TUO NUMERO: '+ yourNumber + '   NUMERO DEL PC: ' + computerNumber + '    SOMMA: '
 + finalNumber;
-  if(oddEven=='pari'){
+  if(selectedPlay=='pari'){
     if(even==true){
       document.getElementById("result").innerHTML='VITTORIA';
     }else{
