@@ -1,21 +1,17 @@
 var submitElement=document.getElementById("submit");
+var yourNumber = parseInt(document.getElementById("number").value);
+var play = document.getElementsByName("play");
+var selectedPlay;
+
+for (var i = 0; i < play.length; i++) {
+  if(play[i].checked){
+    selectedPlay = play[i].value;
+  }
+}
+
+console.log(yourNumber,play,selectedPlay);
 
 submitElement.addEventListener("click",function(){
-  //acquisisco gli input dell'utente
-
-  var yourNumber = parseInt(document.getElementById("number").value);
-  console.log(yourNumber);
-
-  var play = document.getElementsByName("play");
-  var selectedPlay;
-
-  for (var i = 0; i < play.length; i++) {
-    if(play[i].checked){
-      selectedPlay = play[i].value;
-    }
-  }
-
-  console.log(play,selectedPlay);
 
   //creo numero Random dell'Utente con funzione
 
@@ -39,6 +35,7 @@ submitElement.addEventListener("click",function(){
 
   document.getElementById("stats").innerHTML = 'TUO NUMERO: '+ yourNumber + '   NUMERO DEL PC: ' + computerNumber + '    SOMMA: '
 + finalNumber;
+
   if(selectedPlay=='pari'){
     if(even==true){
       document.getElementById("result").innerHTML='VITTORIA';
